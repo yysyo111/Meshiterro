@@ -4,10 +4,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     about_path
   end
+  # サインイン後にどこに遷移するかを設定しているメソッド
   
   def after_sign_out_path_for(resource)
     about_path
   end
+  # サインアウト後にどこに遷移するかを設定するメソッド
   
   protected
   
