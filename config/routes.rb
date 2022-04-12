@@ -3,14 +3,12 @@ Rails.application.routes.draw do
   # devise_for :users は、devise を使用する際に URL として users を含むことを示しています
   # get 'homes/top'
   root to: "homes#top"
+  get 'homes/about', as: 'about'
+  resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+  resources :post_comments, only: [:create, :destroy]
+  end
   
   resources :users, only: [:show, :edit, :update]
-  # get 'post_images/new'
-  # get 'post_images/index'
-  # get 'post_images/show'
-  resources :post_images, only: [:new, :create, :index, :show, :destroy]
-  
-  get 'homes/about', as: 'about'
   # get "/homes/about" => "homes#about", as: "about"
   
   # root to:はサイトのルートページを決める記述
